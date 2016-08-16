@@ -1,0 +1,95 @@
+<head>
+<title>getsnarf(3) - Plan 9 from User Space</title>
+<meta content="text/html; charset=utf-8" http-equiv=Content-Type>
+</head>
+<body bgcolor=#ffffff>
+<table border=0 cellpadding=0 cellspacing=0 width=100%>
+<tr height=10><td>
+<tr><td width=20><td>
+<tr><td width=20><td><b>GETSNARF(3)</b><td align=right><b>GETSNARF(3)</b>
+<tr><td width=20><td colspan=2>
+    <br>
+<p><font size=+1><b>NAME     </b></font><br>
+
+<table border=0 cellpadding=0 cellspacing=0><tr height=2><td><tr><td width=20><td>
+
+    getsnarf, putsnarf &ndash; window system snarf (cut and paste) buffer<br>
+    
+</table>
+<p><font size=+1><b>SYNOPSIS     </b></font><br>
+
+<table border=0 cellpadding=0 cellspacing=0><tr height=2><td><tr><td width=20><td>
+
+    <tt><font size=+1>#include &lt;draw.h&gt; 
+    <table border=0 cellpadding=0 cellspacing=0><tr height=5><td></table>
+    </font></tt>
+    <tt><font size=+1>char &nbsp;&nbsp;&nbsp;*getsnarf(void) 
+    <table border=0 cellpadding=0 cellspacing=0><tr height=5><td></table>
+    </font></tt>
+    <tt><font size=+1>void &nbsp;&nbsp;&nbsp;putsnarf(char *text)<br>
+    </font></tt>
+</table>
+<p><font size=+1><b>DESCRIPTION     </b></font><br>
+
+<table border=0 cellpadding=0 cellspacing=0><tr height=2><td><tr><td width=20><td>
+
+    <i>Getsnarf</i> and <i>putsnarf</i> access the window system&#8217;s snarf (cut and
+    paste) buffer. 
+    <table border=0 cellpadding=0 cellspacing=0><tr height=5><td></table>
+    
+    <i>Getsnarf</i> returns a copy of the current buffer; the returned pointer
+    should be freed with <i>free</i> (see <i>malloc</i>(3)) when no longer needed.
+    
+    <table border=0 cellpadding=0 cellspacing=0><tr height=5><td></table>
+    
+    <i>Putsnarf</i> sets the buffer to the text string <i>text</i>. 
+    <table border=0 cellpadding=0 cellspacing=0><tr height=5><td></table>
+    
+    Callers should assume that the snarf buffer is UTF. If the window
+    system does not keep the buffer in UTF, <i>getsnarf</i> and <i>putsnarf</i>
+    will convert as necessary.<br>
+    
+</table>
+<p><font size=+1><b>SOURCE     </b></font><br>
+
+<table border=0 cellpadding=0 cellspacing=0><tr height=2><td><tr><td width=20><td>
+
+    <tt><font size=+1><a href="https://swtch.com/usr/local/plan9/src/libdraw/">/usr/local/plan9/src/libdraw/</a>x11&#8722;itrans.c<br>
+    </font></tt>
+</table>
+<p><font size=+1><b>SEE ALSO    </b></font><br>
+
+<table border=0 cellpadding=0 cellspacing=0><tr height=2><td><tr><td width=20><td>
+
+    <a href="../man1/snarfer.html"><i>snarfer</i>(1)</a><br>
+    
+</table>
+<p><font size=+1><b>BUGS     </b></font><br>
+
+<table border=0 cellpadding=0 cellspacing=0><tr height=2><td><tr><td width=20><td>
+
+    On OS X, there are two snarf buffers: the Carbon snarf buffer
+    used by native OS X applications, and the X11 snarf buffer, used
+    by X11 applications. Whenever new text is written to the Carbon
+    snarf buffer, the OS X X11 implementation automatically copies
+    that text to the X11 snarf buffer. The reverse is not done automatically,
+    arguably a bug in the
+    X11 server. To work around this, <i>putsnarf</i> writes to both the Carbon
+    snarf buffer and the X11 snarf buffer. To work around this bug
+    in remote or non-Plan 9 X11 clients, run <a href="../man1/snarfer.html"><i>snarfer</i>(1)</a>.<br>
+    
+</table>
+
+<td width=20>
+<tr height=20><td>
+</table>
+<!-- TRAILER -->
+<table border=0 cellpadding=0 cellspacing=0 width=100%>
+<tr height=15><td width=10><td><td width=10>
+<tr><td><td>
+<center>
+<a href="../../index.html"><img src="../../dist/glendacircle.png" alt="Space Glenda" border=0></a>
+</center>
+</table>
+<!-- TRAILER -->
+</body></html>

@@ -1,0 +1,51 @@
+.TH GETSNARF 3
+.SH NAME
+getsnarf, putsnarf \- window system snarf (cut and paste) buffer
+.SH SYNOPSIS
+.B #include <draw.h>
+.PP
+.B
+char	*getsnarf(void)
+.PP
+.B
+void	putsnarf(char *text)
+.SH DESCRIPTION
+.I Getsnarf
+and
+.I putsnarf
+access the window system's snarf (cut and paste) buffer.
+.PP
+.I Getsnarf
+returns a copy of the current buffer;
+the returned pointer should be freed with
+.I free
+(see
+.IR malloc (3))
+when no longer needed.
+.PP
+.I Putsnarf
+sets the buffer to the text string
+.IR text .
+.PP
+Callers should assume that the snarf buffer is UTF.
+If the window system does not keep the buffer in UTF,
+.I getsnarf
+and
+.I putsnarf
+will convert as necessary.
+.SH SOURCE
+.B \*9/src/libdraw/x11-itrans.c
+.SH SEE ALSO
+.IR snarfer (1)
+.SH BUGS
+On OS X, there are two snarf buffers: the Carbon snarf buffer
+used by native OS X applications, and the X11 snarf buffer,
+used by X11 applications.
+Whenever new text is written to the Carbon snarf buffer, the OS X X11
+implementation automatically copies that text to the X11 snarf buffer.
+The reverse is not done automatically, arguably a bug in the X11 server.
+To work around this,
+.I putsnarf
+writes to both the Carbon snarf buffer and the X11 snarf buffer.
+To work around this bug in remote or non-Plan 9 X11 clients, run
+.IR snarfer (1).

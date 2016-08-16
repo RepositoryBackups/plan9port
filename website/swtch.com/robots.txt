@@ -1,0 +1,15 @@
+User-agent: msnbot
+Crawl-delay: 60
+
+User-agent: Slurp
+Crawl-delay: 60
+
+User-agent: *
+Disallow: /~rsc/sequences/
+
+User-agent: Shopwiki
+Disallow: /
+
+User-agent: *
+Crawl-delay: 60
+
