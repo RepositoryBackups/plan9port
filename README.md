@@ -6,6 +6,9 @@ Further Info-
 1. https://swtch.com/plan9port/
 2. https://code.google.com/archive/p/plan9port/
 
+Original URL which lead me to this repository-
+- http://code.swtch.com/plan9port/src/0e6ae8ed3276/src/lib9/sendfd.c
+- https://code.swtch.com/plan9port/src/0e6ae8ed3276/src/lib9/sendfd.c
 
 This is a port of many Plan 9 libraries and programs to Unix.
 
