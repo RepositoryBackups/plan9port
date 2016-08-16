@@ -1,18 +1,21 @@
-Imported from https://code.google.com/archive/p/plan9port on 17/08/2016.
-
-**website** folder contains local copy of the project website - https://swtch.com/plan9port/
-
-Further Info-
-
-1. https://swtch.com/plan9port/
-1. https://code.google.com/archive/p/plan9port/
-
-Original URL which lead me to this repository-
-- http://code.swtch.com/plan9port/src/0e6ae8ed3276/src/lib9/sendfd.c
-- https://code.swtch.com/plan9port/src/0e6ae8ed3276/src/lib9/sendfd.c
-
+> Imported from https://code.google.com/archive/p/plan9port on 17/08/2016.
+> 
+> **website** folder contains local copy of the project website - https://swtch.com/plan9port/
+> 
+> Further Info-
+> 
+> 1. https://swtch.com/plan9port/
+> 1. https://code.google.com/archive/p/plan9port/
+> 
+> Original URL which lead me to this repository-
+> - http://code.swtch.com/plan9port/src/0e6ae8ed3276/src/lib9/sendfd.c
+> - https://code.swtch.com/plan9port/src/0e6ae8ed3276/src/lib9/sendfd.c
+> 
+> The original REAMDE follows
+> 
+--- 
 This is a port of many Plan 9 libraries and programs to Unix.
-
+ 
 * Installation
 
 To install, run ./INSTALL.  It builds mk and then uses mk to
